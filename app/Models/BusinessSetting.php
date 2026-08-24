@@ -9,6 +9,10 @@ class BusinessSetting extends Model
 {
     use HasFactory;
 
+    public const DEFAULT_WHATSAPP_NUMBER = '919574731418';
+    public const DEFAULT_PHONE = '+91 9574731418';
+    public const DEFAULT_WHATSAPP_MESSAGE = "Hello Riya Fashion,\n\nI am interested in your saree processing services (Lace Patti Work, Diamond Work, Hotfix Work, Roll Polish, etc.).\n\nPlease share details about pricing, minimum quantity, turnaround time, and available services.\n\nThank you.";
+
     protected $fillable = [
         'business_name',
         'tagline',
@@ -48,6 +52,41 @@ class BusinessSetting extends Model
     ];
 
     /**
+     * Get the standardized WhatsApp URL with prefilled message.
+     */
+    public function getWhatsAppUrl(?string $customMessage = null): string
+    {
+        $rawNumber = preg_replace('/[^0-9]/', '', $this->whatsapp_number ?: ($this->phone ?: self::DEFAULT_WHATSAPP_NUMBER));
+        if (strlen($rawNumber) === 10) {
+            $rawNumber = '91' . $rawNumber;
+        }
+        if (empty($rawNumber)) {
+            $rawNumber = self::DEFAULT_WHATSAPP_NUMBER;
+        }
+
+        $message = $customMessage ?: self::DEFAULT_WHATSAPP_MESSAGE;
+
+        return 'https://wa.me/' . $rawNumber . '?text=' . rawurlencode($message);
+    }
+
+    /**
+     * Accessor for whatsapp_url attribute.
+     */
+    public function getWhatsAppUrlAttribute(): string
+    {
+        if (!empty($this->whatsapp_link) && str_contains($this->whatsapp_link, 'wa.me')) {
+            // If already has text param, use it; otherwise append default message
+            if (!str_contains($this->whatsapp_link, 'text=')) {
+                $separator = str_contains($this->whatsapp_link, '?') ? '&' : '?';
+                return $this->whatsapp_link . $separator . 'text=' . rawurlencode(self::DEFAULT_WHATSAPP_MESSAGE);
+            }
+            return $this->whatsapp_link;
+        }
+
+        return $this->getWhatsAppUrl();
+    }
+
+    /**
      * Get the single business settings instance (singleton helper).
      */
     public static function getSettings(): self
@@ -63,6 +102,9 @@ class BusinessSetting extends Model
             'state' => 'Gujarat',
             'pincode' => '395010',
             'country' => 'India',
+            'phone' => self::DEFAULT_PHONE,
+            'whatsapp_number' => '+91 9574731418',
+            'whatsapp_link' => 'https://wa.me/919574731418?text=' . rawurlencode(self::DEFAULT_WHATSAPP_MESSAGE),
             'business_hours' => 'Monday - Saturday: 9:00 AM - 8:00 PM | Sunday: Closed',
             'hours_mon_sat' => '9:00 AM - 8:00 PM',
             'hours_sun' => 'Closed',

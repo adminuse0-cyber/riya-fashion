@@ -61,16 +61,12 @@
                         @endif
 
                         <!-- WhatsApp -->
-                        @php
-                            $waNumber = preg_replace('/[^0-9]/', '', $settings->whatsapp_number ?? '919876543210');
-                            $waLink = $settings->whatsapp_link ?: 'https://wa.me/' . $waNumber;
-                        @endphp
                         <li class="d-flex align-items-start gap-3">
                             <div class="p-2 bg-success text-white rounded-3 flex-shrink-0"><i class="bi bi-whatsapp fs-5" aria-hidden="true"></i></div>
                             <div>
                                 <strong class="text-dark d-block">Direct WhatsApp</strong>
-                                <a href="{{ $waLink }}" target="_blank" rel="noopener noreferrer" class="text-success fw-bold text-decoration-none">
-                                    Chat on WhatsApp &raquo;
+                                <a href="{{ $settings->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="text-success fw-bold text-decoration-none">
+                                    Chat on WhatsApp (+91 9574731418) &raquo;
                                 </a>
                             </div>
                         </li>

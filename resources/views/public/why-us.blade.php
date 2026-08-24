@@ -117,11 +117,7 @@
                 <a href="{{ route('contact') }}" class="btn btn-gold px-4 py-2">
                     <i class="bi bi-send-fill me-1" aria-hidden="true"></i> Send Requirement
                 </a>
-                @php
-                    $waNumber = preg_replace('/[^0-9]/', '', $settings->whatsapp_number ?? '919876543210');
-                    $waLink = $settings->whatsapp_link ?: 'https://wa.me/' . $waNumber;
-                @endphp
-                <a href="{{ $waLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-4 py-2">
+                <a href="{{ $settings->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-4 py-2">
                     <i class="bi bi-whatsapp me-1" aria-hidden="true"></i> Direct WhatsApp
                 </a>
             </div>

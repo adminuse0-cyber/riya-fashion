@@ -117,11 +117,7 @@
                             <h3 class="h5 fw-bold text-dark mb-1 font-cinzel">Have a Bulk Saree Lot for {{ $service->title }}?</h3>
                             <p class="small text-muted mb-0">Bring your saree samples or raw materials directly to our Punagam workshop for review.</p>
                         </div>
-                        @php
-                            $waNumber = preg_replace('/[^0-9]/', '', $settings->whatsapp_number ?? '919876543210');
-                            $waLink = $settings->whatsapp_link ?: 'https://wa.me/' . $waNumber;
-                        @endphp
-                        <a href="{{ $waLink }}?text={{ urlencode('Hello Riya Fashion, I would like to enquire about ' . $service->title . ' for saree lots.') }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-3 py-2 flex-shrink-0">
+                        <a href="{{ $settings->getWhatsAppUrl('Hello Riya Fashion, I would like to enquire about ' . $service->title . ' for saree lots.') }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-3 py-2 flex-shrink-0">
                             <i class="bi bi-whatsapp me-1" aria-hidden="true"></i> WhatsApp Inquiry
                         </a>
                     </div>
@@ -141,7 +137,7 @@
                             <i class="bi bi-send-fill me-1" aria-hidden="true"></i> Send Merchant Enquiry
                         </a>
                         
-                        <a href="{{ $waLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-100 py-2 fw-bold">
+                        <a href="{{ $settings->getWhatsAppUrl('Hello Riya Fashion, I would like to enquire about ' . $service->title . ' for saree lots.') }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-100 py-2 fw-bold">
                             <i class="bi bi-whatsapp me-1" aria-hidden="true"></i> Instant WhatsApp Chat
                         </a>
                     </div>

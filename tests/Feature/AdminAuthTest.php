@@ -43,6 +43,24 @@ class AdminAuthTest extends TestCase
         $response->assertRedirect(route('admin.dashboard'));
     }
 
+    public function test_non_admin_cannot_authenticate(): void
+    {
+        User::create([
+            'name' => 'Regular User',
+            'email' => 'user@riyafashion.com',
+            'password' => Hash::make('SecretPass123!'),
+            'is_admin' => false,
+        ]);
+
+        $response = $this->post(route('admin.login.submit'), [
+            'email' => 'user@riyafashion.com',
+            'password' => 'SecretPass123!',
+        ]);
+
+        $this->assertGuest();
+        $response->assertSessionHasErrors('email');
+    }
+
     public function test_admin_cannot_authenticate_with_invalid_password(): void
     {
         User::create([

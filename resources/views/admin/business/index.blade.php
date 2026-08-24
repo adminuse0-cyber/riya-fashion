@@ -127,9 +127,9 @@
                             <label for="phone" class="form-label small fw-semibold">Business Phone Number</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                <input type="text" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone', $settings->phone) }}" placeholder="e.g. +91 98XXXXXXXX">
+                                <input type="text" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone', $settings->phone) }}" placeholder="e.g. +91 9574731418">
                             </div>
-                            <div class="form-text" style="font-size: 11px;">Leave empty if not confirmed yet.</div>
+                            <div class="form-text" style="font-size: 11px;">Official business phone (e.g. +91 9574731418).</div>
                             @error('phone') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                         </div>
 
@@ -137,9 +137,9 @@
                             <label for="whatsapp_number" class="form-label small fw-semibold">WhatsApp Number (For Direct Click-to-Chat CTA)</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bi bi-whatsapp text-success"></i></span>
-                                <input type="text" name="whatsapp_number" id="whatsapp_number" class="form-control @error('whatsapp_number') is-invalid @enderror" value="{{ old('whatsapp_number', $settings->whatsapp_number) }}" placeholder="e.g. 9198XXXXXXXX">
+                                <input type="text" name="whatsapp_number" id="whatsapp_number" class="form-control @error('whatsapp_number') is-invalid @enderror" value="{{ old('whatsapp_number', $settings->whatsapp_number) }}" placeholder="e.g. 919574731418">
                             </div>
-                            <div class="form-text" style="font-size: 11px;">Enter with country code (e.g. 9198XXXXXXXX) for WhatsApp CTA.</div>
+                            <div class="form-text" style="font-size: 11px;">Enter with country code (e.g. 919574731418) for WhatsApp CTA.</div>
                             @error('whatsapp_number') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                         </div>
 
@@ -260,7 +260,7 @@
 
                     <div class="mb-3">
                         <label for="whatsapp_link" class="form-label small fw-semibold">WhatsApp Direct Link URL</label>
-                        <input type="url" name="whatsapp_link" id="whatsapp_link" class="form-control @error('whatsapp_link') is-invalid @enderror" value="{{ old('whatsapp_link', $settings->whatsapp_link) }}" placeholder="https://wa.me/91XXXXXXXXXX">
+                        <input type="url" name="whatsapp_link" id="whatsapp_link" class="form-control @error('whatsapp_link') is-invalid @enderror" value="{{ old('whatsapp_link', $settings->whatsapp_link) }}" placeholder="https://wa.me/919574731418">
                         @error('whatsapp_link') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
 

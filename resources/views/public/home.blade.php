@@ -26,11 +26,7 @@
                         <i class="bi bi-grid-fill me-1" aria-hidden="true"></i> {{ $settings->hero_cta_text ?? 'Explore Saree Services' }}
                     </a>
 
-                    @php
-                        $waNumber = preg_replace('/[^0-9]/', '', $settings->whatsapp_number ?? '919876543210');
-                        $waLink = $settings->whatsapp_link ?: 'https://wa.me/' . $waNumber;
-                    @endphp
-                    <a href="{{ $waLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-4 py-3 fw-bold">
+                    <a href="{{ $settings->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-4 py-3 fw-bold">
                         <i class="bi bi-whatsapp fs-5" aria-hidden="true"></i> Connect on WhatsApp
                     </a>
                 </div>
@@ -71,21 +67,21 @@
 
                     <!-- Service Checklist -->
                     <div class="d-flex flex-column gap-2 mb-3">
-                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-5 border border-white border-opacity-10 d-flex align-items-center justify-content-between text-light small">
-                            <span><i class="bi bi-scissors text-warning me-2" aria-hidden="true"></i> Lace Patti / Border Work</span>
-                            <span class="badge bg-white bg-opacity-10 text-warning">Specialized</span>
+                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-20 d-flex align-items-center justify-content-between small">
+                            <span class="text-black fw-bold" style="color: #000000 !important;"><i class="bi bi-scissors text-warning me-2" aria-hidden="true"></i> Lace Patti / Border Work</span>
+                            <span class="badge bg-warning text-dark">Specialized</span>
                         </div>
-                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-5 border border-white border-opacity-10 d-flex align-items-center justify-content-between text-light small">
-                            <span><i class="bi bi-gem text-warning me-2" aria-hidden="true"></i> Diamond Work</span>
-                            <span class="badge bg-white bg-opacity-10 text-warning">Precision</span>
+                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-20 d-flex align-items-center justify-content-between small">
+                            <span class="text-black fw-bold" style="color: #000000 !important;"><i class="bi bi-gem text-warning me-2" aria-hidden="true"></i> Diamond Work</span>
+                            <span class="badge bg-warning text-dark">Precision</span>
                         </div>
-                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-5 border border-white border-opacity-10 d-flex align-items-center justify-content-between text-light small">
-                            <span><i class="bi bi-stars text-warning me-2" aria-hidden="true"></i> Hotfix / Stone Work</span>
-                            <span class="badge bg-white bg-opacity-10 text-warning">Heat-Press</span>
+                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-20 d-flex align-items-center justify-content-between small">
+                            <span class="text-black fw-bold" style="color: #000000 !important;"><i class="bi bi-stars text-warning me-2" aria-hidden="true"></i> Hotfix / Stone Work</span>
+                            <span class="badge bg-warning text-dark">Heat-Press</span>
                         </div>
-                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-5 border border-white border-opacity-10 d-flex align-items-center justify-content-between text-light small">
-                            <span><i class="bi bi-arrow-repeat text-warning me-2" aria-hidden="true"></i> Roll Polish & Dhaga Cutting</span>
-                            <span class="badge bg-white bg-opacity-10 text-warning">Finishing</span>
+                        <div class="p-2 px-3 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-20 d-flex align-items-center justify-content-between small">
+                            <span class="text-black fw-bold" style="color: #000000 !important;"><i class="bi bi-arrow-repeat text-warning me-2" aria-hidden="true"></i> Roll Polish & Dhaga Cutting</span>
+                            <span class="badge bg-warning text-dark">Finishing</span>
                         </div>
                     </div>
 
@@ -121,7 +117,7 @@
                                 <span class="badge bg-light text-secondary border px-2 py-1 small">#{{ $service->display_order }}</span>
                             </div>
 
-                            <h3 class="h5 fw-bold text-dark mb-2 font-cinzel">{{ $service->title }}</h3>
+                            <h3 class="h5 fw-bold text-black mb-2 font-cinzel" style="color: #000000 !important;">{{ $service->title }}</h3>
                             <p class="text-muted small mb-3" style="line-height: 1.6;">
                                 {{ $service->short_description }}
                             </p>

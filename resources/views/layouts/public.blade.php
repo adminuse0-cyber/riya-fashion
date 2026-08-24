@@ -595,11 +595,7 @@
                 </ul>
 
                 <div class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 mt-3 mt-lg-0">
-                    @php
-                        $waNumber = preg_replace('/[^0-9]/', '', $settings->whatsapp_number ?? '919876543210');
-                        $waLink = $settings->whatsapp_link ?: 'https://wa.me/' . $waNumber;
-                    @endphp
-                    <a href="{{ $waLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm px-3 py-2" title="Chat directly with Riya Fashion on WhatsApp">
+                    <a href="{{ $settings->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm px-3 py-2" title="Chat directly with Riya Fashion on WhatsApp">
                         <i class="bi bi-whatsapp fs-6" aria-hidden="true"></i>
                         <span>WhatsApp</span>
                     </a>
@@ -643,7 +639,7 @@
                 With 10+ years of dedicated experience in Surat, Riya Fashion provides reliable border stitching, diamond placement, hotfix stones, roll polishing, and dhaga cutting for your saree catalog lots.
             </p>
             <div class="d-flex flex-column flex-sm-row justify-content-center gap-3" style="max-width: 500px; margin: 0 auto;">
-                <a href="{{ $waLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-4 py-2">
+                <a href="{{ $settings->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp px-4 py-2">
                     <i class="bi bi-whatsapp fs-5 me-1" aria-hidden="true"></i> Chat on WhatsApp
                 </a>
                 <a href="{{ route('contact') }}" class="btn btn-gold px-4 py-2">

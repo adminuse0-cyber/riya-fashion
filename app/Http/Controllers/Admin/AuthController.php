@@ -48,12 +48,24 @@ class AuthController extends Controller
         $credentials = [
             'email' => $request->input('email'),
             'password' => $request->input('password'),
-            'is_admin' => true,
         ];
 
         $remember = $request->boolean('remember');
 
         if (Auth::attempt($credentials, $remember)) {
+            $user = Auth::user();
+
+            if (! $user->is_admin) {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return back()->withInput($request->only('email', 'remember'))
+                    ->withErrors([
+                        'email' => 'Access denied. Administrator privileges required.',
+                    ]);
+            }
+
             RateLimiter::clear($throttleKey);
             $request->session()->regenerate();
 

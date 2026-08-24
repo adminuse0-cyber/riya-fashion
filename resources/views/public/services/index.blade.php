@@ -42,7 +42,7 @@
                                         <i class="bi {{ $service->icon ?? 'bi-gem' }}" aria-hidden="true"></i>
                                     </div>
                                     <div>
-                                        <h2 class="h4 fw-bold text-dark mb-0 font-cinzel">{{ $service->title }}</h2>
+                                        <h2 class="h4 fw-bold text-black mb-0 font-cinzel" style="color: #000000 !important;">{{ $service->title }}</h2>
                                         <span class="badge bg-secondary-subtle text-secondary small">Service #{{ $service->display_order }}</span>
                                     </div>
                                 </div>

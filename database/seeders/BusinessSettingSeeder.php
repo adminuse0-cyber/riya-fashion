@@ -25,8 +25,9 @@ class BusinessSettingSeeder extends Seeder
                 'state' => 'Gujarat',
                 'pincode' => '395010',
                 'country' => 'India',
-                'phone' => null, // Placeholder to be populated via Admin panel
-                'whatsapp_number' => null, // Placeholder to be populated via Admin panel
+                'phone' => '+91 9574731418',
+                'whatsapp_number' => '+91 9574731418',
+                'whatsapp_link' => 'https://wa.me/919574731418?text=' . rawurlencode("Hello Riya Fashion,\n\nI am interested in your saree processing services (Lace Patti Work, Diamond Work, Hotfix Work, Roll Polish, etc.).\n\nPlease share details about pricing, minimum quantity, turnaround time, and available services.\n\nThank you."),
                 'email' => null, // Placeholder to be populated via Admin panel
                 'business_hours' => 'Monday - Saturday: 9:00 AM - 8:00 PM | Sunday: Closed',
                 'google_map_embed_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14879.458925232924!2d72.86874135!3d21.197543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f02e604f329%3A0xc0787a412015f8a0!2sPunagam%2C%20Surat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
